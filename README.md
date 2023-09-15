@@ -1,0 +1,3 @@
+java.io.NotSerializableException
+ 报该错误的类，需要在该类实现序列化接口
+即implements Serializable
