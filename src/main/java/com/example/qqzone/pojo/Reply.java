@@ -1,11 +1,12 @@
 package com.example.qqzone.pojo;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Reply {
     private Integer id;
     private String content;
-    private Date replyDate;
+    private LocalDateTime replyDate;
     private UserBasic author; //M:1
     private Topic topic; //M:1
 
@@ -27,11 +28,18 @@ public class Reply {
         this.content = content;
     }
 
-    public Date getReplyDate() {
+    public LocalDateTime getReplyDate() {
         return replyDate;
     }
 
-    public void setReplyDate(Date replyDate) {
+    public Reply(String content,LocalDateTime replyDate,UserBasic author,Topic topic) {
+        this.author = author;
+        this.content=content;
+        this.replyDate=replyDate;
+        this.topic=topic;
+    }
+
+    public void setReplyDate(LocalDateTime replyDate) {
         this.replyDate = replyDate;
     }
 

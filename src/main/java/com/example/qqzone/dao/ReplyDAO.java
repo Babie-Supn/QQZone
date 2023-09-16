@@ -10,10 +10,10 @@ public interface ReplyDAO {
     public List<Reply> getReplyList(Topic topic) throws Exception;
 
     //添加回复
-    public void addReply(Reply reply);
+    public void addReply(Reply reply) throws Exception;
 
     //删除回复
-    public void delReply(Integer id);
+    public void delReplyByID(Integer id) throws Exception;
 
 
 

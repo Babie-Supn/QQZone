@@ -66,7 +66,7 @@
           <div class="h32 center" style="width:100%;" th:text="${reply.author.nickName}">段誉</div>
         </td>
         <td class="reply_title" th:onmouseover="|showDelImg('img${reply.id}')|" th:onmouseout="|hiddenDelImg('img${reply.id}')|">
-          <span th:text="|回复：${session.topic.title}|">回复：萧某今天就和天下群雄决一死战，你们一起上吧！</span>
+          <span th:text="|回复: ${session.topic.title}|">回复：萧某今天就和天下群雄决一死战，你们一起上吧！</span>
           <img th:if="${session.userBasic.id==session.friend.id || session.userBasic.id==reply.author.id}" th:id="|img${reply.id}|" style="width:24px;height: 24px;float: right;margin-top:2px;margin-right:2px;display: none;" th:src="@{/imgs/del.jpg}" th:onclick="|delReply(${reply.id} , ${session.topic.id})|" />
           <span class="title_date_right" th:text="${reply.replyDate}">2021-09-01 14:35:15</span>
         </td>
@@ -77,7 +77,7 @@
           <ul style="width: 96%;border:1px dotted lightgray;list-style-type: none;padding-left:8px;padding-right:8px;" th:if="${reply.hostReply!=null}">
             <img   style="width:24px;height: 24px;float: right;margin-top:2px;margin-right:2px;" th:src="@{/imgs/del.jpg}" th:onclick="|delHostReply(${reply.hostReply.id} , ${session.topic.id})|" />
             <li style="color:#6e0000;font-size:12px;width: 100%;border:0px solid red;" th:text="${reply.hostReply.content}">你以为我是慕容复的人，所以和我比试？段兄弟年纪轻轻，就有如此武学修为，实属罕见！武林早已盛传大理段氏有一门绝学，叫六脉神剑，能以无形剑气杀人，果然真有此门神功！</li>
-            <li style="color:#6e0000;font-size:12px;width:100%;border:0px solid blue;text-align: right;margin-right: 8px;" th:text="|主人回复${reply.hostReply.hostReplyDate}|">主人回复于2021/10/01 11:50:30</li>
+            <li style="color:#6e0000;font-size:12px;width:100%;border:0px solid blue;text-align: right;margin-right: 8px;" th:text="|主人回复于${reply.hostReply.hostReplyDate}|">主人回复于2021/10/01 11:50:30</li>
           </ul>
           <input id="reply_id" type="hidden" th:value="${reply.id}" />
           <input id="reply_topic_id" type="hidden" th:value="${reply.topic.id}" />

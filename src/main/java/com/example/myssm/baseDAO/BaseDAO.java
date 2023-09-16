@@ -67,14 +67,14 @@ public T getInstance(String sql,Object...args) throws Exception {
     public List<T> getForList(String sql, Object...args) throws Exception {
        conn= ConnUtil.getConn();
         PreparedStatement ps = conn.prepareStatement(sql);
-        ArrayList list=new ArrayList<>();
+        ArrayList<T> list=new ArrayList<>();
         for (int i=0;i< args.length;i++){
             ps.setObject(i+1,args[i]);
         }
         ResultSet rs = ps.executeQuery();
         ResultSetMetaData rsmd = rs.getMetaData();
         int count = rsmd.getColumnCount();
-        if(rs.next()){
+        while (rs.next()){
             T t=clazz.newInstance();
             for(int i=0;i<count;i++){
                 Object object=rs.getObject(i+1);
@@ -142,6 +142,14 @@ public T getInstance(String sql,Object...args) throws Exception {
             }
             JDBCUtils.closeResource(null,ps,rs);
        return null;
+    }
+    public void insertTable(String sql,Object ...args) throws Exception {
+        conn=ConnUtil.getConn();
+        PreparedStatement ps= conn.prepareStatement(sql);
+        for (int i=0;i< args.length;i++){
+            ps.setObject(i+1,args[i]);
+        }
+        ps.executeUpdate();
     }
 }
 

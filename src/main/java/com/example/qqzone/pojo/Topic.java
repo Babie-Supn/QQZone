@@ -17,7 +17,8 @@ public class Topic implements Serializable {
 
    }
     public Topic(Integer topicID) {
-       this.id=id;
+
+       this.id=topicID;
     }
 
     public Integer getId() {

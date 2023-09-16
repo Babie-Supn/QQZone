@@ -22,6 +22,7 @@
     <bean id="topicService" class="com.example.qqzone.service.impl.TopicServiceImpl">
         <property name="topicDAO" ref="topicDAO"/>
         <property name="replyService" ref="replyService"/>
+        <property name="userBasicService" ref="userBasicService"/>
     </bean>
 
     <bean id="user" class="com.example.qqzone.controller.UserController">
@@ -40,6 +41,10 @@
     <bean id="replyService" class="com.example.qqzone.service.impl.ReplyServiceImpl">
         <property name="replyDAO" ref="replyDAO"/>
         <property name="hostReplyService" ref="hostReplyService"/>
+        <property name="userBasicService" ref="userBasicService"/>
+    </bean>
+    <bean id="reply" class="com.example.qqzone.controller.ReplyController">
+        <property ref="replyService" name="replyService"/>
     </bean>
 
 
