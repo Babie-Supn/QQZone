@@ -18,4 +18,8 @@ public class ReplyController {
         //需要更新信息，重定向
         return "redirect:topic.do?operate=topicDetail&id="+topicId;
     }
+    public String delReply(Integer replyId,Integer topicId) throws Exception {
+        replyService.delReply(replyId);
+        return "redirect:topic.do?operate=topicDetail&id="+topicId;
+    }
 }

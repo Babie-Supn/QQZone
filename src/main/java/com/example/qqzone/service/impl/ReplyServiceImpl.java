@@ -38,5 +38,31 @@ public class ReplyServiceImpl implements ReplyService {
         replyDAO.addReply(reply);
     }
 
+    @Override
+    public void delReply(Integer replyId) throws Exception {
+        //1.根据id获取到reply
+        Reply reply = replyDAO.getReplyById(replyId);
+        if(reply!=null){
+            HostReply hostReply = hostReplyService.getHReplyByReplyID(replyId);
+//            reply.setHostReply(hostReply);
+            //2.如果reply有关联的hostReply,则先删除hostReply
+            if(reply.getHostReply()!=null){
+                hostReplyService.delHostReplyByID(hostReply.getId());
+            }
+        //3.删除reply
+        replyDAO.delReplyByID(replyId);
+        }
+    }
+
+    @Override
+    public void delReplyList(Topic topic) throws Exception {
+        List<Reply> replyList = replyDAO.getReplyList(topic);
+        if(replyList!=null){
+            for(Reply reply:replyList){
+                delReply(reply.getId());
+            }
+        }
+    }
+
 
 }

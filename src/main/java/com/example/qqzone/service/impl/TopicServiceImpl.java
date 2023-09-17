@@ -33,4 +33,15 @@ public class TopicServiceImpl implements TopicService {
         topic.setReplyList(replyList);
         return topic;
     }
+
+    @Override
+    public void delTopic(Integer id) throws Exception {
+        Topic topic = topicDAO.getTopic(id);
+        if(topic!=null){
+//            List<Reply> replyList=topic.getReplyList();
+            replyService.delReplyList(topic);
+            topicDAO.delTopic(topic);
+        }
+
+    }
 }

@@ -10,4 +10,9 @@ public class HostReplyServiceImpl implements HostReplyService {
     public HostReply getHReplyByReplyID(Integer replyID) throws Exception {
         return hostReplyDAO.getHostReplyByReplyByID(replyID);
     }
+
+    @Override
+    public void delHostReplyByID(Integer hostReplyId) throws Exception {
+        hostReplyDAO.delHostReplyById(hostReplyId);
+    }
 }

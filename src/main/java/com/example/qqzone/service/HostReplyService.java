@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface HostReplyService {
     HostReply getHReplyByReplyID(Integer replyID) throws Exception;
+    void delHostReplyByID(Integer hostReplyId) throws Exception;
 }

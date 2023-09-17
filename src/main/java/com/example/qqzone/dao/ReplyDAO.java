@@ -14,6 +14,8 @@ public interface ReplyDAO {
 
     //删除回复
     public void delReplyByID(Integer id) throws Exception;
+    //根据id获取指定的reply
+    Reply getReplyById(Integer id) throws Exception;
 
 
 

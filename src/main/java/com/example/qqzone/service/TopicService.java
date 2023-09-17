@@ -10,7 +10,8 @@ public interface TopicService {
     List<Topic> getTopicList(UserBasic userBasic) throws Exception;
     //根据id获取特定topic, 包含这个topic关联的作者信息
     Topic getTopicByID(Integer id) throws Exception;
-
+    //删除特定的topic
+    void delTopic(Integer id) throws Exception;
 
 
 

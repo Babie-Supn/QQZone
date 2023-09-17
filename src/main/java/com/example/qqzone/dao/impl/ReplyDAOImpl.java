@@ -18,12 +18,19 @@ public class ReplyDAOImpl extends BaseDAO<Reply> implements ReplyDAO {
     @Override
     public void addReply(Reply reply) throws Exception {
       String sql="insert into q_reply values(0,?,?,?,?)";
-      super.insertTable(sql,reply.getContent(),reply.getReplyDate(),reply.getAuthor().getId(),reply.getTopic().getId());
+      super.updateTable(sql,reply.getContent(),reply.getReplyDate(),reply.getAuthor().getId(),reply.getTopic().getId());
     }
 
     @Override
     public void delReplyByID(Integer id) throws Exception {
      String sql="delete from q_reply where id=?";
-     super.getInstance(sql,id);
+     super.updateTable(sql,id);
     }
+
+    @Override
+    public Reply getReplyById(Integer id) throws Exception {
+        String sql="select * from q_reply where id=?";
+        return super.getInstance(sql,id);
+    }
+    //
 }

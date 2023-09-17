@@ -143,7 +143,7 @@ public T getInstance(String sql,Object...args) throws Exception {
             JDBCUtils.closeResource(null,ps,rs);
        return null;
     }
-    public void insertTable(String sql,Object ...args) throws Exception {
+    public void updateTable(String sql,Object ...args) throws Exception {
         conn=ConnUtil.getConn();
         PreparedStatement ps= conn.prepareStatement(sql);
         for (int i=0;i< args.length;i++){

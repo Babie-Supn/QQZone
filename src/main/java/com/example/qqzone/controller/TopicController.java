@@ -15,4 +15,11 @@ public class TopicController {
         session.setAttribute("topic",topic);
         return "frames/detail";
     }
+    public String delTopic(Integer topicId) throws Exception {
+        topicService.delTopic(topicId);
+        return "redirect:topic.do?operate=getTopicList";
+    }
+    public String getTopicList(HttpSession session){
+        return null;
+    }
 }
